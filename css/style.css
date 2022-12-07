@@ -575,6 +575,7 @@ header button:hover {
     font-size: 7vw;
   }
   .wrapper .add {
+    z-index: 10 !important;
     width: 80%;
     position: relative;
     -webkit-transform: none;
