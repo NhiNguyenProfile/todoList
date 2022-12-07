@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Beastly&family=VT323&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    background-image: url(../img/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 3px;
+    background-color: #F5F5F5;
+} 
+
+body::-webkit-scrollbar-thumb {
+	background: rgb(52, 61, 64);
+    border-radius: 100px;
+}
+
+#style-1::-webkit-scrollbar-track {
+    box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.801);
+    background-color: #F5F5F5;
+}
+
+
+
+// ================== ANIMATION ==================
+@keyframes move1 {
+    from {
+        transform: translateX(-10vw);
+    }
+    to {
+        transform: translateX(0vw);
+    }
+}
+@keyframes move2 {
+    from {
+        transform: translateX(0vw);
+    }
+    to {
+        transform: translateX(20vw);
+    }
+}
+
+
+header {
+    height: 8.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 43%;
+    img {
+        height: 100%;
+    }
+    button {
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        transition: all 0.5s;
+        img {
+            height: 40%;
+        }
+    }
+    button:hover {
+        scale: 1.2;
+    }
+}
+
+.bg-animation {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    #cloud1 {
+        opacity: 0.8;
+        width: 30vw;
+        position: relative;
+        top: 22vh;
+        right: 0;
+        left: 70vw;
+        z-index: 2;
+        animation-name: move1;
+        animation: 20s linear 0s infinite alternate move1;
+    }
+    #cloud2 {
+        opacity: 0.8;
+        width: 30vw;
+        transform: translateY(10vh) translateX(10vw);
+        animation-name: move1;
+        animation: 25s linear 0s infinite alternate move2;
+    }
+}
+
+.wrapper {
+    width: 100vw;
+    padding: 5vh 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__left {
+        width: 18.5%;
+        cursor: pointer;
+        position: fixed;
+        &__top {
+            img {
+                width: 100%;
+            }
+            &__content {
+                position: absolute;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(-27.5vw);
+                .avatar {
+                    img {
+                        z-index: 1;
+                        width: 12vw;
+                        height: auto;
+                        border-radius: 500px;
+                    }   
+                    &__overlay {
+                        z-index: 10;
+                        height: 12vw;
+                        width: 12vw;
+                        box-shadow: inset -7px -7px 10px rgba(0, 0, 0, 0.44), inset 7px 7px 10px rgba(0, 0, 0, 0.44);
+                        position: absolute;
+                        top: 0;
+                        border-radius:200px;
+                    }
+                }
+                p {
+                    font-weight: 300;
+                    font-size: 1vw;
+                    margin-top: 2.5vh;
+                }
+                h4 {
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: 1.5vw;
+                    margin: 1.5vh;
+                }
+                .flightInfo {
+                    &__line{
+                        font-weight: 300;
+                        font-size: 0.9vw;
+                        margin: 1.8vh 0;
+                        span {
+                            padding-right: 0.7vw;
+                        }
+                        .bold {
+                            font-weight: 800;
+                        }
+                        &.date {
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+        }
+        
+        &__bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                transform: translateY(-3.5px);
+                width: 100%;
+            }
+            .social {
+                position: absolute;
+                ion-icon {
+                    color: #535353;
+                    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+                    margin: 0 0.5vw;
+                    font-size: 1.8vw;
+                    cursor: pointer;
+                }
+                ion-icon:hover {
+                    scale: 1.2;
+                }
+
+            }
+        }
+    }
+    &__left:hover{
+        .wrapper__left__bottom {
+            transition: ease-in-out all 0.5s;
+            transform: translateY(15px) translateX(3px) rotate(-5deg);
+        }
+    }
+
+    .add {
+        width: 19%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        transform: translateX(20vw) translateY(55vh);
+        img {
+            width: 100%;
+        }
+        &__formTodo {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            padding-bottom: 10px;
+            h4 {
+                width: 10vw;
+                text-align: center;
+                font-size: 3.5vh;
+                color: #323232;
+                text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                font-family: 'VT323';
+                font-weight: 400;
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+            input {
+                text-align: center;
+                padding: 2vh 1vh;
+                font-size: 3vh;
+                font-family: 'VT323';
+                font-weight: 400;
+                border: none;
+                background: rgba(217, 217, 217, 0.67);
+                color: #424242;
+                text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+        }
+        button {
+            background-color: transparent;
+            border-radius: 100px;
+            border: none;
+            font-size: 5vh;
+            ion-icon {
+                transition: all 0.3s;
+                cursor: pointer;
+                color: rgba(27, 26, 26, 0.64);
+            }
+        }
+        button:hover {
+            ion-icon {
+                scale: 1.2;
+                color: rgba(255, 255, 255, 0.64);
+            }
+        }
+        }
+    }
+
+    &__right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        &__title {
+            text-align: right;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            margin-bottom: 5vh;
+            h2 {
+                font-weight: 300;
+                font-size: 65px;
+                color: #585858;
+            }
+            h1 {
+                font-weight: 800;
+                font-size: 150px;
+                color: #2E2D2D;
+                z-index: -1;
+                transform: translateY(-30px);
+            }
+        }
+        &__todoList {
+            z-index: 10 !important;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            ul {
+                
+                li {
+                    display: flex;
+                    justify-content: flex-end;
+                    transition: all 1s;
+                    cursor: pointer;
+                    span {
+                    width: auto;
+                    background: #FFFFFF;
+                    border-left: 2px dashed #000000;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+                    border-radius: 10px;
+                    margin: 2.5vh 0;
+                    padding: 2.5vh 3vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 500;
+                    font-size: 18px;
+                    color: #636363;
+                    
+                    ion-icon {
+                        margin-left: 1vw;
+                        cursor: pointer;
+                    }
+                    ion-icon:hover {
+                        scale: 1.2;
+                    }
+                    }
+                    .index {
+                        border-left: none;
+                        width: 5vw;
+                        z-index: 1;
+                        font-family: 'Montserrat';
+                        font-weight: 700;
+                        font-size: 16px;
+                        color: #636363;
+                        padding: 0 3vw;
+                    }
+                }
+                li:hover {
+                    scale: 1.2;
+                    transform: translateX(-3vw);
+                }
+            }
+            button {
+                border: none;
+                background-color: transparent;
+                font-weight: 500;
+                font-size: 3vh;
+                filter: drop-shadow(0px 4px 4px rgba(102, 102, 102, 0.25));
+                cursor: pointer;
+            }
+            button:hover {
+                color:rgba(0, 0, 0, 0.25);
+            }
+        }
+
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 800px) {
+    body {
+        background-image: url(../img/background_rs.png);
+    }
+    .bg-animation {
+        #cloud1 {
+            width: 100vw;
+            top: 148vh;
+            left: 0;
+            animation-duration: 8s;
+        }
+        #cloud2 {
+            opacity: 0.5;
+            position: relative;
+            width: 80vw;
+            top: 90vh;
+            animation-duration: 10s;
+        }
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__left {
+            position: relative;
+            width: 80%;
+            &__top {
+                &__content {
+                    transform: translateY(-110%);
+                    .avatar {
+                    width: 45vw;
+                        img {
+                            width: 100%;
+                        }
+                        &__overlay {
+                            width: 45vw;
+                            height: 45vw;
+                        }
+                    }
+                    p {
+                        font-size: 4vw;
+                    }
+                    h4 {
+                        font-size: 6vw;
+                    }
+                    .flightInfo {
+                        &__line {
+                            span {
+                                font-size: 3vw;
+                            }
+                        }
+                    }
+                }
+            }
+            &__bottom {
+                .social {
+                    ion-icon {
+                        font-size: 7vw;
+                    }
+                }
+            }
+        }
+        .add {
+            width: 80%;
+            position: relative;
+            transform: none;
+            margin: 10vh;
+            img {
+                width: 100%;
+            }
+            &__formTodo {
+                form {
+                    h4 {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+        &__right {
+            position: relative;
+            &__title {
+                width: 100%;
+            }
+            &__todoList {
+                width: 100%;
+                ul {
+                    li {
+                        width: 90vw;
+                        .index {
+                            width: 70px;
+                        }
+                        span {
+                            ion-icon {
+                                font-size: 25px;
+                            }
+                        }
+                        
+                    }
+                    li:hover {
+                        scale: 1.0;
+                    }
+                }
+                button {
+                    display: flex;
+                    
+                }
+            }
+        }
+    }
+}
